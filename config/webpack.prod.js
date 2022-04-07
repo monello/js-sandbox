@@ -5,7 +5,11 @@ const { merge } = require('webpack-merge');
 const commonConfig = require('./webpack.common');
 
 const devConfig = {
-    mode: 'development',                // This will be where you state the environment this config is intended for: 'development', `production` or 'none'
+    mode: 'production',                // This will be where you state the environment this config is intended for: 'development', `production` or 'none'
+    output: {
+        filename: 'bundle.[contenthash].js',  // Here we tell WP what to call out bundled JS file
+        publicPath: ''
+    },
 };
 
 module.exports = merge(commonConfig, devConfig);
